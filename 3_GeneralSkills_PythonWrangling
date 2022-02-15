@@ -25,11 +25,12 @@ Exectution fails with the following output (doesn't understand that it's a pytho
   ./ende.py: line 16: syntax error near unexpected token `sys.argv'
   ./ende.py: line 16: `if len(sys.argv) < 2 or len(sys.argv) > 4:'
   
-Add shebang to beginning of script:
+Add shebang to beginning of script (which says- this script is meant to be run by this executable python). 
+First find the location of the executable python:
 $ which python3
 Output: /usr/bin/python3
 $ nano ende.py
-Make "#!/usr/bin/python3" the first line in the file
+Make "#!/usr/bin/python3" the first line in the file .
 
 Run script:
 $ ./ende.py
