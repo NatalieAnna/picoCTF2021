@@ -1,0 +1,45 @@
+Description-
+Python scripts are invoked kind of like programs in the Terminal... Can you run 'this Python script' using 'this password' to get 'the flag'?
+
+Solution-
+
+Pull the files:
+$ wget https://mercury.picoctf.net/static/0bf545252b5120845e3b568b9ad0277e/ende.py
+$ wget https://mercury.picoctf.net/static/0bf545252b5120845e3b568b9ad0277e/pw.txt
+$ wget https://mercury.picoctf.net/static/0bf545252b5120845e3b568b9ad0277e/flag.txt.en
+
+Check py script:
+$ ll ende.py
+Output: -rw-rw-r--  1 nat nat 1328 Mar 16  2021 ende.py
+
+Make executable and run:
+$ chmod +x ende.py
+$ ./ende.py
+
+Exectution fails with the following output (doesn't understand that it's a python script):
+  ./ende.py: line 2: import: command not found
+  ./ende.py: line 3: import: command not found
+  from: can't read /var/mail/cryptography.fernet
+  ./ende.py: line 8: usage_msg: command not found
+  ./ende.py: line 9: help_msg: command not found
+  ./ende.py: line 16: syntax error near unexpected token `sys.argv'
+  ./ende.py: line 16: `if len(sys.argv) < 2 or len(sys.argv) > 4:'
+  
+Add shebang to beginning of script:
+$ which python3
+Output: /usr/bin/python3
+$ nano ende.py
+Make "#!/usr/bin/python3" the first line in the file
+
+Run script:
+$ ./ende.py
+Output: Usage: ./ende.py (-e/-d) [file]
+
+Get password (as you will be prompted in the next step):
+$ cat pw.txt
+Output: 6008014f6008014f6008014f6008014f
+
+Run script (assuming '-e' is encrypt and '-d' is decrypt).:
+$ ./ende.py -d flag.txt.en 
+Please enter the password: 6008014f6008014f6008014f6008014f
+Output: picoCTF{4p0110_1n_7h3_h0us3_6008014f}
