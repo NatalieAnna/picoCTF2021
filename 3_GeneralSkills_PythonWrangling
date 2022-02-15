@@ -39,7 +39,7 @@ Get password (as you will be prompted in the next step):
 $ cat pw.txt
 Output: 6008014f6008014f6008014f6008014f
 
-Run script (assuming '-e' is encrypt and '-d' is decrypt).:
+Run script (assuming '-e' is encrypt and '-d' is decrypt):
 $ ./ende.py -d flag.txt.en 
 Please enter the password: 6008014f6008014f6008014f6008014f
 Output: picoCTF{4p0110_1n_7h3_h0us3_6008014f}
