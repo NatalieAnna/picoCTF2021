@@ -1,0 +1,31 @@
+Description-
+Cryptography can be easy, do you know what ROT13 is? cvpbPGS{arkg_gvzr_V'yy_gel_2_ebhaqf_bs_ebg13_nSkgmDJE}
+
+Solutions-
+Use online converter or code the algorithm:
+
+// Rot13.java
+// Implementation of ROT13, a letter substitution cipher, in Java.
+
+public class Rot13 {
+	public static void main(String[] args) {
+		String s = "EbgngrOl13Cynprf(EBG13_vf_n_'yrggre fhofgvghgvba'_pvcure)";
+		String s2 = "";		
+		for (int i=0; i<s.length(); i++)
+		{
+			char c = s.charAt(i);
+			if       (c >= 'a' && c <= 'm') c += 13;
+			else if  (c >= 'A' && c <= 'M') c += 13;
+			else if  (c >= 'n' && c <= 'z') c -= 13;
+			else if  (c >= 'N' && c <= 'Z') c -= 13;
+			s2 = s2 + c;
+		}
+		System.out.println(s2);
+	}
+}
+
+# Rot13.py
+# Implementation of ROT13, a letter substitution cipher, in Python.
+import codecs
+output = codecs.encode('cvpbPGS{arkg_gvzr_V'yy_gel_2_ebhaqf_bs_ebg13_nSkgmDJE}', 'rot_13')
+print(output)
