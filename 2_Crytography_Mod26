@@ -9,7 +9,7 @@ Use online converter or code the algorithm:
 
 public class Rot13 {
 	public static void main(String[] args) {
-		String s = "EbgngrOl13Cynprf(EBG13_vf_n_'yrggre fhofgvghgvba'_pvcure)";
+		String s = "cvpbPGS{arkg_gvzr_V'yy_gel_2_ebhaqf_bs_ebg13_nSkgmDJE}";
 		String s2 = "";		
 		for (int i=0; i<s.length(); i++)
 		{
