@@ -1,0 +1,40 @@
+Description-
+Files can always be changed in a secret way. Can you find the flag? cat.jpg
+
+Solution-
+
+Pull file and check details:
+$ wget https://mercury.picoctf.net/static/c28a959c5605d5f67480d5dd3a77f302/cat.jpg
+$ ll
+Output: -rw-rw-r--  1 nat nat 878136 Mar 16  2021 cat.jpg
+$ file cat.jpg
+Output: cat.jpg: JPEG image data, JFIF standard 1.02, aspect ratio, density 1x1, segment length 16, baseline, precision 8, 2560x1598, components 3
+
+Open file:
+$ xdg-open cat.jpg
+
+Use/install exiftool to get "license data":
+$ sudo apt install libimage-exiftool-perl
+$ exiftool cat.jpg
+Outut: License: cGljb0NURnt0aGVfbTN0YWRhdGFfMXNfbW9kaWZpZWR9
+
+The data looks like it's base64 encrypted. Decrypt it at https://gchq.github.io/CyberChef/
+Output: picoCTF{the_m3tadata_1s_modified}
+
+
+
+Other metadata tools:
+Look for readable content. "Less" simply allows you to scroll through the output using the spacebar:
+$ strings cat.jpg | less
+
+Look for the keyword 'pico', ignoring case (-i):
+$ strings cat.jpg | grep -i pico
+
+Look for stenography:
+$ steghide extract -sf cat.jpg
+
+$ stat cat.jpg
+
+$ file cat.jpg
+
+$ xxd cat.jpg
