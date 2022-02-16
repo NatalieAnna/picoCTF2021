@@ -30,11 +30,22 @@ $ strings cat.jpg | less
 Look for the keyword 'pico', ignoring case (-i):
 $ strings cat.jpg | grep -i pico
 
-Look for stenography:
-$ steghide extract -sf cat.jpg
-
 $ stat cat.jpg
 
 $ file cat.jpg
 
 $ xxd cat.jpg
+
+Look for stenography:
+$ steghide extract -sf cat.jpg
+
+Unrelated-
+Steghide tool usage:
+To embed/extract data in a file:
+$ steghide embed -ef secretTextForEmbedding.txt -cf photo.jpg -sf secretPhoto.jpg
+$ ll
+Output (note the difference in filesize):
+-rw-rw-r--  1 nat nat 4671123 Feb 16 11:21 photo.jpg
+-rw-rw-r--  1 nat nat 4607781 Feb 16 11:22 secretPhoto.jpg
+$ steghide extract -sf secretPhoto.jpg -xf extractedSecretText.txt
+$ cat extractedSecretText.txt
