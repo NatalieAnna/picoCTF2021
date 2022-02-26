@@ -22,4 +22,21 @@ This will attempt to initiate a TCP connection to the defined host on the port n
 $ netcat -u host port
 Send a UDP packet instead.
 
+$ netcat -z -v domain.com 1-1000
+Scans ports ("-z" option) rather than initiating a connection (the nmap utility is a better choice). "-v" for verbose information.
+
+$ netcat -l 4444
+Listen for TCP connections on port 4444.
+On a second server, we can connect to the first machine on the port number:
+$ netcat domain.com 4444
+Any typed messages will appear on both the local and remote screen.
+
+$ netcat -l 4444 > received_file
+The ">" redirects all the output of netcat into the specified filename.
+
+$ netcat domain.com 4444 < sent_file
+Can use this file as input for the netcat connection we will establish to the listening computer. The file will be transmitted just as if we had typed it interactively:
+$ netcat domain.com 4444 < sent_file
+$ cat received_file
+
 
