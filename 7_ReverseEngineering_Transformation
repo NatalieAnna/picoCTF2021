@@ -1,0 +1,17 @@
+Description-
+I wonder what this really is... enc ''.join([chr((ord(flag[i]) << 8) + ord(flag[i + 1])) for i in range(0, len(flag), 2)])
+
+# wget <enc file>
+# cat enc
+Output: 灩捯䍔䙻ㄶ形楴獟楮獴㌴摟潦弸彥ㄴㅡて㝽
+
+# Analysing the python code:
+ord() returns the Unicode form of a given character.
+For example:
+    print(ord('A'))
+Output: 65
+    
+chr(n) returns a string representing a character whose Unicode code point is an integer, where n is an integer value.
+For example:
+    print(chr(82))
+Output: R
