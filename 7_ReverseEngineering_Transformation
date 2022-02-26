@@ -6,7 +6,7 @@ I wonder what this really is... enc ''.join([chr((ord(flag[i]) << 8) + ord(flag[
 Output: 灩捯䍔䙻ㄶ形楴獟楮獴㌴摟潦弸彥ㄴㅡて㝽
 
 # Analysing the python code:
-ord() returns the Unicode form of a given character.
+ord() returns the Unicode code point of a given character. The Unicode Standard provides a unique number for every character.
 For example:
     print(ord('A'))
 Output: 65
@@ -15,3 +15,14 @@ chr(n) returns a string representing a character whose Unicode code point is an 
 For example:
     print(chr(82))
 Output: R
+
+So, the chr(n) method is the inverse of ord() function; it takes Unicode code point (which is an integer number) and returns a string. 
+
+Solution 1:
+CyberChef > Language > Text encoding > Input type: UTF16, Output type: UTF8
+
+Solution 2:
+decode = '灩捯䍔䙻ㄶ形楴獟楮獴㌴摟潦弸彥ㄴㅡて㝽'
+print(decode.encode('utf-16-be'))
+
+Output: picoCTF{16_bits_inst34d_of_8_e141a0f7}
